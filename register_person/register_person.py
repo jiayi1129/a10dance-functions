@@ -37,7 +37,7 @@ def check_student_exists(student_id):
     docs = db.collection('students').stream()
     for doc in docs:
         if student_id == doc.to_dict()['student_id']:
-            return doc
+            return doc.reference
     return db.collection('students').document()
 
 # helper function to generate encoding for image passed in
